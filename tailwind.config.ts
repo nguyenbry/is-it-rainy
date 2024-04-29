@@ -22,6 +22,7 @@ const config = {
         xslate: generateRadixColorScale("slate"),
         xgreen: generateRadixColorScale("green"),
         xred: generateRadixColorScale("red"),
+        xindigo: generateRadixColorScale("indigo"),
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

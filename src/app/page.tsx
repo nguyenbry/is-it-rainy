@@ -1,15 +1,30 @@
+import { CloudSun } from "lucide-react";
 import Link from "next/link";
 
 import { CreatePost } from "~/components/create-post";
 import { ThemeToggle } from "~/components/theme-toggle";
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
 import { api } from "~/trpc/server";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+    <main className="grid min-h-screen place-content-center">
+      <div className="bg-card flex h-[50dvh] w-[70dvw] flex-col rounded-lg border p-4">
+        <h2 className="text-8xl font-semibold tracking-tighter">Weather</h2>
+        {/* <div className="flex gap-3">
+          <Input type="text" className="" />
+          <Button variant={"success"}>Search</Button>
+        </div> */}
+        <Button variant={"default"} className="mt-24 self-center">
+          <CloudSun className="mr-1.5 size-4" />
+          Search City or Zip Code
+        </Button>
+      </div>
+
+      {/* <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
           Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
         </h1>
@@ -44,8 +59,8 @@ export default async function Home() {
         </div>
 
         <CrudShowcase />
-      </div>
-      <ThemeToggle />
+      </div> */}
+      <ThemeToggle className="absolute bottom-6 left-1/2 -translate-x-1/2" />
     </main>
   );
 }
