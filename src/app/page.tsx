@@ -5,7 +5,7 @@ import { SavedLocations } from "~/components/saved-locations";
 
 export default function Home() {
   return (
-    <main className="grid min-h-screen place-content-center">
+    <main className="grid min-h-[100dvh] place-content-center">
       <LocationNameBanner className="">Weather</LocationNameBanner>
       <WeatherSearch />
       <SavedLocations />

@@ -14,7 +14,7 @@ async function WeatherPage({ searchParams }: { searchParams: unknown }) {
    * of what they searched for.
    */
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-[100dvh] flex-col">
       <Suspense
         fallback={
           <div className="flex grow items-center px-4">

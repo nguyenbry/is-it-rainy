@@ -105,7 +105,7 @@ function ForecastCard({
   const Icon = iconComponentMap[icon];
 
   return (
-    <div className="animate-in fade-in-0 slide-in-from-top-11 hover:bg-xamber-3 hover:border-xamber-7 hover:text-xamber-11 flex w-[110px] flex-col items-center rounded-md border px-2 py-4 transition-all hover:-translate-y-3 md:w-[130px] lg:w-[150px]">
+    <div className="animate-in fade-in-0 slide-in-from-top-11 hover:bg-xamber-3 flex w-[110px] flex-col items-center rounded-md border px-2 py-4 transition-all md:w-[130px] lg:w-[150px]">
       <span className="text-sm">
         {timezoneAwareDate(dt, timezone).toFormat("d EEE")}
       </span>

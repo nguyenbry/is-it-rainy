@@ -190,6 +190,9 @@ type forecastSchema = z.infer<typeof forecastSchema>;
  * I can use TypeScript to guard against the validator definitely not matching
  * the response during development. It doesn't guarantee it will match,
  * but can save me from some typos perhaps.
+ *
+ * That is, I can be sure my schema matches at least 1 possible response,
+ * which is a good place to start.
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _mustCompile: ExampleResponse extends weatherSchema ? true : false = true;
