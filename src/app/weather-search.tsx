@@ -15,33 +15,34 @@ function WeatherSearch() {
 
   return (
     <div className="bg-card flex w-screen flex-col p-5 md:w-[90dvw] md:p-8 lg:w-[80dvw] 2xl:w-[1200px]">
-      <div className="flex flex-col justify-center gap-4 md:flex-row">
+      <form
+        className="flex flex-col justify-center gap-4 md:flex-row"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const cleaned = query.trim();
+          if (cleaned.length < 1)
+            return toast.error("Please type a city or zip code.", {
+              dismissible: true,
+            });
+          const params = new URLSearchParams({
+            query: cleaned,
+          });
+          if (country) params.set("country", country);
+          router.push(`/weather?${params.toString()}`);
+        }}
+      >
         <Input
           className="grow"
           placeholder="Type a city or zip code..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          name="query"
         />
         <CountryCombobox value={country} onChange={setCountry} />
-        <Button
-          variant={"default"}
-          className="shrink-0"
-          onClick={() => {
-            const cleaned = query.trim();
-            if (cleaned.length < 1)
-              return toast.error("Please type a city or zip code.", {
-                dismissible: true,
-              });
-            const params = new URLSearchParams({
-              query: cleaned,
-            });
-            if (country) params.set("country", country);
-            router.push(`/weather?${params.toString()}`);
-          }}
-        >
+        <Button variant={"default"} className="shrink-0" type="submit">
           Search
         </Button>
-      </div>
+      </form>
     </div>
   );
 }

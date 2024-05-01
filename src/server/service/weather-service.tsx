@@ -35,7 +35,6 @@ class MyWeatherService implements WeatherService {
     search.set("appId", this.openWeatherApiKey);
 
     const url = `${this.openWeatherBaseUrl}${path}?${search.toString()}`;
-    console.log("fetching", url);
     const res = await fetch(url);
     return this.fetchWrapped(res);
   }

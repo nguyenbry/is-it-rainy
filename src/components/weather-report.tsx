@@ -61,7 +61,7 @@ async function WeatherReport({
 
   return (
     <>
-      <div className="inline-flex items-center pl-1.5">
+      <div className="inline-flex items-center p-1.5">
         <Link
           href={"/"}
           className={buttonVariants({
@@ -71,9 +71,11 @@ async function WeatherReport({
         >
           <ChevronLeft className="size-5" />
         </Link>
-        <LocationNameBanner>{data.name}</LocationNameBanner>
+        <LocationNameBanner className="text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl">
+          {data.name}
+        </LocationNameBanner>
       </div>
-      <Icon className="animate-in spin-in-12 fade-in-0 size-20 self-center duration-1000 hover:scale-110" />
+      <Icon className="animate-in spin-in-12 fade-in-0 size-24 self-center duration-1000 hover:scale-110" />
       <span className="animate-in spin-in-6 slide-in-from-bottom-8 fade-in-0 mt-3 self-center text-7xl font-light tracking-tighter">
         {Math.round(data.main.temp)}°F
       </span>
